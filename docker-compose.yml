@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+  sqlmigrate:
+    image: sqlxmigrator
+    depends_on:
+      - postgresql
+      - mysql
+    environment:
+      PGPASSWORD: postgres
+      PG_CONN_STRING: host=postgresql user=postgres password=postgres dbname=sqlxmigrator_test port=5432 sslmode=disable
+      MYSQL_CONN_STRING: root:mysql@tcp(mysql)/sqlxmigrator_test?multiStatements=true
+
+  postgresql:
+    image: postgres:14.2-alpine3.15
+    expose:
+      - 5433
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_DB: sqlxmigrator_test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+  mysql:
+    image: mysql:8.0
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: sqlxmigrator_test
+      MYSQL_ROOT_PASSWORD: mysql 
