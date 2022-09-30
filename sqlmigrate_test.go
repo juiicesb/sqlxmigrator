@@ -407,4 +407,4 @@ func contains(haystack []string, needle string) bool {
 func (g *Sqlxmigrate) hasTable(tableName string) bool {
 	ok, _ := g.HasTable(tableName)
 	return ok
-} 
+}

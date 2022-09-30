@@ -1,3 +1,4 @@
+//go:build postgresql
 // +build postgresql
 
 package sqlxmigrator
@@ -11,4 +12,4 @@ func init() {
 		name:    "postgres",
 		connEnv: "PG_CONN_STRING",
 	})
-} 
+}

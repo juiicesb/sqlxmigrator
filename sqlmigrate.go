@@ -497,8 +497,8 @@ func (g *Sqlxmigrate) HasTable(tableName string) (bool, error) {
 		} else if strings.Contains(err.Error(), "no such table") {
 			// sqlite table error
 			return false, nil
-        }
+		}
 		return false, err
 	}
 	return true, nil
-} 
+}

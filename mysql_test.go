@@ -1,3 +1,4 @@
+//go:build mysql
 // +build mysql
 
 package sqlxmigrator
@@ -11,4 +12,4 @@ func init() {
 		name:    "mysql",
 		connEnv: "MYSQL_CONN_STRING",
 	})
-} 
+}
